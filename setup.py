@@ -50,8 +50,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     test_suite='runtests',
-    install_requires=[
-        'py-moneyed==0.6.0'
-    ],
+    install_requires=open('requirements.txt').readlines(),
     zip_safe=False,
 )
