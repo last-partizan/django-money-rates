@@ -1,15 +1,10 @@
 from __future__ import unicode_literals
 
+from urllib.request import urlopen
 import logging
 import json
 
 from django.core.exceptions import ImproperlyConfigured
-from django.utils import six
-
-try:
-    from urllib2 import urlopen
-except ImportError:
-    from urllib.request import urlopen
 
 from .exceptions import RateBackendError
 from .models import RateSource, Rate
@@ -57,7 +52,7 @@ class BaseRateBackend(object):
         source.base_currency = self.get_base_currency()
         source.save()
 
-        for currency, value in six.iteritems(self.get_rates()):
+        for currency, value in self.get_rates().items():
             try:
                 rate = Rate.objects.get(source=source, currency=currency)
             except Rate.DoesNotExist:
