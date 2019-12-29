@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from django.core.management.base import BaseCommand, CommandError
 
 from ...settings import money_rates_settings, import_from_string

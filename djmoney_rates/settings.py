@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 """
 This module is largely inspired by django-rest-framework settings.
 
